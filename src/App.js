@@ -1,8 +1,8 @@
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/css';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { css } from '@emotion/css';
 
 // putting all elements to the center
 const Centered = styled.section`
@@ -27,34 +27,40 @@ const SuperHeading = styled.section`
 /// button to the center
 const Button = styled.button`
   text-align: center;
+  display: relative;
+  margin: auto;
+`;
+
+// style of the array button
+const arraybutton = css`
   display: block;
   margin: auto;
 `;
 
 // Array experiment
 const array = [1, 2, 3];
-let i = 0;
+
+// style for the box
+const boxStyle = (color, height) => css`
+  background-color: ${color};
+  width: 200px;
+  padding-top: 50px;
+  text-align: center;
+  margin: auto;
+  height: ${height}px;
+  transition-property: all;
+  transition-duration: 1s;
+  border: 3px solid #000;
+`;
 
 export default function App() {
   const [color, setColor] = useState(randomColor());
   const [hue, setHue] = useState('');
   const [luminosity, setLuminosity] = useState('');
-  const [valueheight, setHeight] = useState(200);
+  const [height, setHeight] = useState(200);
   const [index, setIndex] = useState(0);
 
-  const Box = css`
-    background-color: ${color};
-    width: 200px;
-    padding-top: 50px;
-    text-align: center;
-    margin: auto;
-    height: ${valueheight}px;
-    transition-property: all;
-    transition-duration: 1s;
-    border: 3px solid #000;
-  `;
-
-  //answer that displays inside of the box
+  //  answer that displays inside of the box
   const answer = `Generated Color: </background ${color}>`;
 
   return (
@@ -66,7 +72,13 @@ export default function App() {
         <br />
         <input
           value={hue}
-          onChange={(event) => setHue(event.currentTarget.value)}
+          onChange={(event) => {
+            setHue(event.currentTarget.value);
+            randomColor({
+              luminosity: luminosity,
+              hue: event.currentTarget.value, // how to change the value why typing
+            });
+          }}
         />
         <br />
         <br />
@@ -82,8 +94,8 @@ export default function App() {
             setLuminosity(event.currentTarget.value);
             setColor(
               randomColor({
-                luminosity: luminosity,
-                hue: hue,
+                luminosity: event.currentTarget.value,
+                hue: hue, // how to change the value why typing
               }),
             );
           }}
@@ -92,33 +104,35 @@ export default function App() {
         <Heading>Set the size of the box below: </Heading>
         <br />
         <input
-          value={valueheight}
+          value={height}
           onChange={(event) => setHeight(Number(event.currentTarget.value))}
         />
         <br />
         <br />
-        <div className={Box}>{answer}</div>
-        <br />
-        <br />
-        <button onClick={() => setIndex(index < 2 ? index + 1 : 0)}>
-          Parsing array [1, 2, 3]
-        </button>
-        ....{array[index]}
+        {console.log(boxStyle)}
+        <div className={boxStyle(color, height)}>
+          {answer}
+          <Button
+            onClick={() =>
+              setColor(
+                randomColor({
+                  luminosity: luminosity,
+                  hue: hue,
+                }),
+              )
+            }
+          >
+            Generate random color
+          </Button>
+        </div>
+        <p>....{array[index]}</p>
       </Centered>
-      <br />
-      <Button
-        autofocus="true"
-        onClick={() =>
-          setColor(
-            randomColor({
-              luminosity: luminosity,
-              hue: hue,
-            }),
-          )
-        }
+      <button
+        className={arraybutton}
+        onClick={() => setIndex(index < 2 ? index + 1 : 0)}
       >
-        Generate random color
-      </Button>
+        Parsing array [1, 2, 3]
+      </button>
     </>
   );
 }
