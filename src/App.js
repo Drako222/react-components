@@ -24,13 +24,6 @@ const SuperHeading = styled.section`
   font-weight: bold;
 `;
 
-/// button to the center
-const Button = styled.button`
-  text-align: center;
-  display: relative;
-  margin: auto;
-`;
-
 // style of the array button
 const arraybutton = css`
   display: block;
@@ -112,7 +105,7 @@ export default function App() {
         {console.log(boxStyle)}
         <div css={boxStyle(color, height)}>
           {answer}
-          <Button
+          <button
             onClick={() =>
               setColor(
                 randomColor({
@@ -123,7 +116,7 @@ export default function App() {
             }
           >
             Generate
-          </Button>
+          </button>
         </div>
         <p>....{array[index]}</p>
       </Centered>
