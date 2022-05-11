@@ -110,7 +110,7 @@ export default function App() {
         <br />
         <br />
         {console.log(boxStyle)}
-        <div className={boxStyle(color, height)}>
+        <div css={boxStyle(color, height)}>
           {answer}
           <Button
             onClick={() =>
@@ -128,7 +128,7 @@ export default function App() {
         <p>....{array[index]}</p>
       </Centered>
       <button
-        className={arraybutton}
+        css={arraybutton}
         onClick={() => setIndex(index < 2 ? index + 1 : 0)}
       >
         Parsing array [1, 2, 3]
