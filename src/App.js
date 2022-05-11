@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
 import styled from 'styled-components';
