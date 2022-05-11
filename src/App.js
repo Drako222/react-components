@@ -122,7 +122,7 @@ export default function App() {
               )
             }
           >
-            Generate random color
+            Generate
           </Button>
         </div>
         <p>....{array[index]}</p>
