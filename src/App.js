@@ -102,7 +102,7 @@ export default function App() {
         />
         <br />
         <br />
-        <div>{answer}</div>
+
         <div css={boxStyle(color, height)} />
         <button
           onClick={() =>
@@ -116,6 +116,7 @@ export default function App() {
         >
           Generate
         </button>
+        <div>{answer}</div>
         <p>....{array[index]}</p>
       </Centered>
       <button
