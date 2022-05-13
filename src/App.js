@@ -102,8 +102,7 @@ export default function App() {
         />
         <br />
         <br />
-        <div>{answer}</div>
-        <div css={boxStyle(color, height)} />
+        <div css={boxStyle(color, height)}>{answer}</div>
         <button
           onClick={() =>
             setColor(
