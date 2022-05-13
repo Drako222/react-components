@@ -105,7 +105,8 @@ export default function App() {
         {console.log(boxStyle)}
         <div css={boxStyle(color, height)}>
           {answer}
-          <button
+        </div>
+        <button
             onClick={() =>
               setColor(
                 randomColor({
@@ -117,7 +118,6 @@ export default function App() {
           >
             Generate
           </button>
-        </div>
         <p>....{array[index]}</p>
       </Centered>
       <button
