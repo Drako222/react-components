@@ -56,6 +56,28 @@ export default function App() {
   return (
     <>
       <Centered>
+        <div
+          style={{
+            margin: 'auto',
+            height: height,
+            width: '200px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            backgroundColor:
+              hue || luminosity
+                ? randomColor({ hue: hue, luminosity: luminosity })
+                : color,
+            transition: 'all 3s',
+            border: '2px solid black',
+          }}
+        >
+          Generated Color: {color}
+        </div>
+        <br />
+        <button onClick={() => setColor(randomColor())}>Generate</button>
+        <br />
         <SuperHeading> Random color generator</SuperHeading>
         <br />
         <Heading> Set Hue if you feel like it:</Heading>
@@ -97,28 +119,6 @@ export default function App() {
           value={height}
           onChange={(event) => setHeight(Number(event.currentTarget.value))}
         />
-        <br />
-        <br />
-        <div
-          style={{
-            margin: 'center',
-            height: height,
-            width: '200px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
-            backgroundColor:
-              hue || luminosity
-                ? randomColor({ hue: hue, luminosity: luminosity })
-                : color,
-            transition: 'all 3s',
-            border: '2px solid black',
-          }}
-        >
-          Generated Color: {color}
-        </div>
-        <button onClick={() => setColor(randomColor())}>Generate</button>
         <br />
         <p>....{array[index]}</p>
       </Centered>
