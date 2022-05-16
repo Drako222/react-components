@@ -34,18 +34,18 @@ const arraybutton = css`
 const array = [1, 2, 3];
 
 // style for the box
-const boxStyle = (color, height) => css`
-  background-color: ${color};
-  width: 200px;
-  padding-top: 50px;
-  text-align: center;
-  margin: auto;
-  height: ${height}px;
-  transition-property: all;
-  transition-duration: 1s;
-  border: 3px solid #000;
-`;
-
+// const boxStyle = (color, height) => css`
+/* background-color: ${color}; */
+/* width: 200px; */
+/* padding-top: 50px; */
+/* text-align: center; */
+/* margin: auto; */
+/* height: ${height}px; */
+/* transition-property: all; */
+/* transition-duration: 1s; */
+/* border: 3px solid #000; */
+// `;
+//
 export default function App() {
   const [color, setColor] = useState(randomColor());
   const [hue, setHue] = useState('');
@@ -99,7 +99,13 @@ export default function App() {
         />
         <br />
         <br />
-        <div css={boxStyle(color, height)}>Generated color: {color}</div>
+        <div
+          style={{
+            backgroundColor: color,
+          }}
+        >
+          Generated color: {color}
+        </div>
         <div
           style={{
             // color: color,
@@ -113,18 +119,8 @@ export default function App() {
             alignItems: 'center',
           }}
         />
-        <button
-          onClick={() =>
-            setColor(
-              randomColor({
-                luminosity: luminosity,
-                hue: hue,
-              }),
-            )
-          }
-        >
-          Generate
-        </button>
+        <button onClick={() => setColor(randomColor())}>Generate</button>
+        <br />
         <p>....{array[index]}</p>
       </Centered>
       <button
