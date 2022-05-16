@@ -106,19 +106,6 @@ export default function App() {
         >
           Generated color: {color}
         </div>
-        <div
-          style={{
-            // color: color,
-            backgroundColor: color,
-            width: '100px',
-            height: '200px',
-            display: 'flex',
-            padding: '8px',
-            marginleft: 'center',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        />
         <button onClick={() => setColor(randomColor())}>Generate</button>
         <br />
         <p>....{array[index]}</p>
