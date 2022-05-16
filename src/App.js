@@ -53,9 +53,6 @@ export default function App() {
   const [height, setHeight] = useState(200);
   const [index, setIndex] = useState(0);
 
-  //  answer that displays inside of the box
-  const answer = `Generated Color: ${color}>`;
-
   return (
     <>
       <Centered>
@@ -102,7 +99,20 @@ export default function App() {
         />
         <br />
         <br />
-        <div css={boxStyle(color, height)}>{answer}</div>
+        <div css={boxStyle(color, height)}>Generated color: {color}</div>
+        <div
+          style={{
+            // color: color,
+            backgroundColor: color,
+            width: '100px',
+            height: '200px',
+            display: 'flex',
+            padding: '8px',
+            marginleft: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        />
         <button
           onClick={() =>
             setColor(
