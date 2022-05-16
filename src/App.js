@@ -54,7 +54,7 @@ export default function App() {
   const [index, setIndex] = useState(0);
 
   //  answer that displays inside of the box
-  const answer = `Generated Color: </background ${color}>`;
+  const answer = `Generated Color: ${color}>`;
 
   return (
     <>
