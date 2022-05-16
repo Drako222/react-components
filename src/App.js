@@ -101,10 +101,22 @@ export default function App() {
         <br />
         <div
           style={{
-            backgroundColor: color,
+            margin: 'center',
+            height: height,
+            width: '200px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            backgroundColor:
+              hue || luminosity
+                ? randomColor({ hue: hue, luminosity: luminosity })
+                : color,
+            transition: 'all 3s',
+            border: '2px solid black',
           }}
         >
-          Generated color: {color}
+          Generated Color: {color}
         </div>
         <button onClick={() => setColor(randomColor())}>Generate</button>
         <br />
